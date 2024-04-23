@@ -23,6 +23,7 @@ void PrintNumbers()
 		printf("%d ", num);
 		wait(lab2semaphore);
 	}
+	kill(m2pid);
 }
 
 void PrintSentence()
@@ -32,7 +33,7 @@ void PrintSentence()
 		printf("I am running\n");
 		signaln(lab2semaphore, 5);
 	}
-	kill(m2pid);
+	
 }
 
 void lab2Process(int process)
