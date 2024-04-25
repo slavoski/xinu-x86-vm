@@ -12,6 +12,7 @@ int prvWidth = 7;
 int tableWidth;
 
 sid32 lab2semaphore;
+sid32 lab2semaphore_part1;
 pid32 m2pid;
 
 void PrintNumbers()
@@ -45,14 +46,17 @@ void lab2Process(int process)
 
 void Lab2Code()
 {
-	lab2semaphore = semcreate(20);
-	//printf("Lab2 Code\n");
-	//resume(create(lab2Process, 1024, 20, "pro1", 1, 1));
-	//wait(lab2semaphore);
-	//resume(create(lab2Process, 1024, 20, "pro2", 1, 2));
-	//wait(lab2semaphore);
-	//resume(create(PrintProcessQueueTable, 1024, 20, "pro3", 0));
-
+	lab2semaphore = semcreate(0);
+	printf("Lab2 Code Part 1\n");
+	resume(create(lab2Process, 1024, 20, "pro1", 1, 1));
+	wait(lab2semaphore);
+	resume(create(lab2Process, 1024, 20, "pro2", 1, 2));
+	wait(lab2semaphore);
+	resume(create(PrintProcessQueueTable, 1024, 20, "pro3", 0));
+	wait(lab2semaphore);
+	
+	printf("\n\nPart 2\n\n");
+	signaln(lab2semaphore, 21);
 	resume(create(PrintNumbers, 1024, 30, "Print Num", 0));
 	m2pid = create(PrintSentence, 1024, 20, "Print Sent", 0);
 	resume(m2pid);
@@ -130,6 +134,7 @@ void PrintProcessQueueTable()
 {
 	PrintHeader();
 	PrintProcesses();
+	signal(lab2semaphore);
 }
 
 void PrintPIDColumn()
