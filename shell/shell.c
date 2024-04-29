@@ -2,7 +2,7 @@
 
 #include <xinu.h>
 #include <stdio.h>
-#include "shprototypes.h"		  
+#include "shprototypes.h"	
 
 /************************************************************************/
 /* Xinu shell commands and the function associated with each		*/
@@ -20,7 +20,8 @@ const	struct	cmdent	cmdtab[] = {
 	{"memstat",	FALSE,	xsh_memstat},
 	{"ps",		FALSE,	xsh_ps},
 	{"sleep",	FALSE,	xsh_sleep},
-	{"?",		FALSE,	xsh_help}
+	{"?",		FALSE,	xsh_help},
+	{"lab4",    FALSE,  xsh_lab4},
 
 };
 
