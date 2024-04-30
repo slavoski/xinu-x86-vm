@@ -72,3 +72,5 @@ extern	shellcmd  xsh_help	(int32, char *[]);
 
 // in file lab4.c
 extern shellcmd xsh_lab4(int32, char* []);
+
+extern shellcmd xsh_read(int32, char* []);
