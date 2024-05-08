@@ -323,4 +323,7 @@ extern	syscall	yield(void);
 
 extern void readClass(int value);
 
+//in runforever.c
+extern void runforever();
+
 extern void class5();

@@ -75,4 +75,6 @@ extern shellcmd xsh_lab4(int32, char* []);
 
 extern shellcmd xsh_read(int32, char* []);
 
+extern shellcmd xsh_create(int32, char* []);
+
 extern shellcmd xsh_class5(int32, char* []);
