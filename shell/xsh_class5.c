@@ -3,7 +3,6 @@
 #include <string.h>
 #include <ctype.h>
 
-
 void CreateProcess()
 {
 	kprintf("%d\n", getpid());
@@ -15,6 +14,7 @@ int CheckValue(int value)
 	{
 		value = 20;
 	}
+
 	return value;
 }
 
@@ -28,14 +28,17 @@ shellcmd xsh_class5(int nargs, char* args[])
 	int value2 = 0;
 	int value3 = 0;
 
-	switch(nargs)
+	switch (nargs)
 	{
-	case 5:
-		value1 = atoi(args[4]);
 	case 4:
-		value2 = atoi(args[3]);
+		value1 = atoi(args[3]);
+		kprintf("Value 3: %d\n", value1);
 	case 3:
-		value3 = atoi(args[2]);
+		value2 = atoi(args[2]);
+		kprintf("Value 2: %d\n", value2);
+	case 2:
+		value3 = atoi(args[1]);
+		kprintf("Value 1: %d\n", value3);
 		break;
 	default:
 		fprintf(stderr, "%s: invalid arguments\n", args[0]);
@@ -45,9 +48,9 @@ shellcmd xsh_class5(int nargs, char* args[])
 		break;
 	}
 
-	processOne = create(CreateProcess, 1024, CheckValue(value1), "pro1", 1, 1);
+	processOne = create(CreateProcess, 1024, CheckValue(value3), "pro1", 1, 1);
 	processTwo = create(CreateProcess, 1024, CheckValue(value2), "pro2", 1, 1);
-	processThree = create(CreateProcess, 1024, CheckValue(value3), "pro3", 1, 1);
+	processThree = create(CreateProcess, 1024, CheckValue(value1), "pro3", 1, 1);
 
 	resume(processOne);
 	resume(processTwo);
@@ -55,5 +58,3 @@ shellcmd xsh_class5(int nargs, char* args[])
 
 	return 0;
 }
-
-
