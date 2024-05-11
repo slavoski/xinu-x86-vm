@@ -68,7 +68,7 @@ SYSTEM_CFILES =								\
 	unsleep.c	userret.c	wait.c		wakeup.c	\
 	write.c		xdone.c		yield.c		evec.c      \
 	lab1.c      lab2.c      readClass.c runforever.c \
-	class5.c
+	class5.c    lab4.c
 
 SYSTEM_SFULL = ${SYSTEM_SFILES:%=../system/%}
 SYSTEM_CFULL = ${SYSTEM_CFILES:%=../system/%}

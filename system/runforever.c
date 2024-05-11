@@ -1,4 +1,5 @@
 #include <xinu.h>
+#include <stdio.h>
 
 void runforever()    {
     printf("\n\n");

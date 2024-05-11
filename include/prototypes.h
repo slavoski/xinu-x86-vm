@@ -327,3 +327,5 @@ extern void readClass(int value);
 extern void runforever();
 
 extern void class5();
+
+extern void Lab4();
