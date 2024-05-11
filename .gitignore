@@ -368,3 +368,6 @@ FodyWeavers.xsd
 /compile/vn
 /compile/xinu
 /system/main.o
+/system/create.o
+/system/newqueue.o
+/system/semcreate.o
