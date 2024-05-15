@@ -329,3 +329,5 @@ extern void runforever();
 extern void class5();
 
 extern void Lab4();
+
+extern void class6(int processToRun);

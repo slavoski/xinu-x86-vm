@@ -25,6 +25,7 @@ const	struct	cmdent	cmdtab[] = {
 	{"read",    FALSE,  xsh_read},
 	{"create",  FALSE,  xsh_create},
 	{"class5",  FALSE,  xsh_class5},
+	{"class6",  FALSE,  xsh_class6},
 };
 
 uint32	ncmd = sizeof(cmdtab) / sizeof(struct cmdent);
