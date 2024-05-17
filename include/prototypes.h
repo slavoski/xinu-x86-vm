@@ -331,3 +331,15 @@ extern void class5();
 extern void Lab4();
 
 extern void class6(int processToRun);
+
+extern void class7();
+
+extern void class8();
+
+extern void class9();
+
+extern void class10();
+
+extern void Lab5(); 
+
+extern void Lab6();

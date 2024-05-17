@@ -35,7 +35,7 @@ void Process2Semaphore()
 
 
 
-void Class6(int processToRun)
+void class6(int processToRun)
 {
 	finishedSemaphore = semcreate(0);
 	if (processToRun == 1)

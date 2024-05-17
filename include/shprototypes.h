@@ -80,3 +80,17 @@ extern shellcmd xsh_create(int32, char* []);
 extern shellcmd xsh_class5(int32, char* []);
 
 extern shellcmd xsh_class6(int32, char* []);
+
+extern shellcmd xsh_lab5(int32, char* []);
+
+extern shellcmd xsh_lab6(int32, char* []);
+
+extern shellcmd xsh_class7(int32, char* []);
+
+extern shellcmd xsh_class8(int32, char* []);
+
+extern shellcmd xsh_class9(int32, char* []);
+
+extern shellcmd xsh_class10(int32, char* []);
+
+

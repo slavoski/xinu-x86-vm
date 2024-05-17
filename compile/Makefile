@@ -68,7 +68,9 @@ SYSTEM_CFILES =								\
 	unsleep.c	userret.c	wait.c		wakeup.c	\
 	write.c		xdone.c		yield.c		evec.c      \
 	lab1.c      lab2.c      readClass.c runforever.c \
-	class5.c    lab4.c      class6.c
+	class5.c    lab4.c      class6.c    class7.c \
+	class8.c    class9.c    class10.c   lab5.c \
+	lab6.c      
 
 SYSTEM_SFULL = ${SYSTEM_SFILES:%=../system/%}
 SYSTEM_CFULL = ${SYSTEM_CFILES:%=../system/%}
@@ -107,7 +109,8 @@ SHELL_CFILES +=								\
 	xsh_echo.c	xsh_exit.c	xsh_devdump.c	xsh_help.c	\
 	xsh_kill.c	xsh_memdump.c	xsh_ps.c 	xsh_sleep.c 	\
 	xsh_memstat.c xsh_lab4.c xsh_read.c	xsh_create.c    \
-	xsh_class5.c xsh_class6.c
+	xsh_class5.c xsh_class6.c xsh_class7.c xsh_class8.c \
+	xsh_class9.c xsh_class10.c xsh_lab5.c xsh_lab6.c
 
 SHELL_CFULL  = ${SHELL_CFILES:%=../shell/%}
 

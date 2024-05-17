@@ -1,7 +1,7 @@
 #include <xinu.h>
 #include <stdio.h>
 
-shellcmd xsh_class6(int nargs, char* args[])
+shellcmd xsh_lab5(int nargs, char* args[])
 {
 	if (nargs > 2) {
 		fprintf(stderr, "%s: too many arguments\n", args[0]);
@@ -10,9 +10,7 @@ shellcmd xsh_class6(int nargs, char* args[])
 		return 1;
 	}
 
-	int processToRun = atoi(args[1]);
-
-	class6(processToRun);
+	Lab5();
 
 	return 0;
 }
