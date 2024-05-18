@@ -70,7 +70,7 @@ SYSTEM_CFILES =								\
 	lab1.c      lab2.c      readClass.c runforever.c \
 	class5.c    lab4.c      class6.c    class7.c \
 	class8.c    class9.c    class10.c   lab5.c \
-	lab6.c      
+	lab6.c      sendk.c     receivek.c
 
 SYSTEM_SFULL = ${SYSTEM_SFILES:%=../system/%}
 SYSTEM_CFULL = ${SYSTEM_CFILES:%=../system/%}
