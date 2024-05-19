@@ -7,12 +7,12 @@
  *------------------------------------------------------------------------
  */
 syscall	sendk(
-	  pid32		pid,		/* ID of recipient process	*/
-	  umsg32	msg		/* contents of message		*/
-	)
+	pid32		pid,		/* ID of recipient process	*/
+	umsg32	msg		/* contents of message		*/
+)
 {
 	intmask	mask;			/* saved interrupt mask		*/
-	struct	procent *prptr;		/* ptr to process' table entry	*/
+	struct	procent* prptr;		/* ptr to process' table entry	*/
 
 	mask = disable();
 	if (isbadpid(pid)) {
@@ -23,7 +23,7 @@ syscall	sendk(
 	prptr = &proctab[pid];
 
 	int i = 0;
-	for (; i < 5; ++i)
+	for (; i < NMESSAGES; ++i)
 	{
 		if (prptr->prhasmsgs[i] == FALSE)
 		{
@@ -31,14 +31,13 @@ syscall	sendk(
 		}
 	}
 
-	
 	if ((prptr->prstate == PR_FREE) || i >= 5) {
-		kprintf("Message %d failed\n", msg);
+		kprintf("Message number %d with message %d failed\n", i, msg);
 		restore(mask);
 		return SYSERR;
 	}
 
-	kprintf("Message %d\n", i);
+	kprintf("Message Number %d with message %d\n", i, msg);
 
 	prptr->prmsgs[i] = msg;		/* deliver message		*/
 	prptr->prhasmsgs[i] = TRUE;		/* indicate message is waiting	*/
@@ -52,7 +51,6 @@ syscall	sendk(
 		unsleep(pid);
 		ready(pid, RESCHED_YES);
 	}
-	
 
 	restore(mask);		/* restore interrupts */
 	return OK;

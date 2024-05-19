@@ -205,8 +205,7 @@ extern	status	ready(pid32, bool8);
 /* in file receive.c */
 extern	umsg32	receive(void);
 
-extern	umsg32	receivek(void);
-
+extern	umsg32* receivek(void);
 
 /* in file recvclr.c */
 extern	umsg32	recvclr(void);
@@ -346,6 +345,6 @@ extern void class9();
 
 extern void class10();
 
-extern void Lab5(); 
+extern void Lab5();
 
-extern void Lab6();
+extern void Lab6(int processToRun, int numOfMessagesToSend);

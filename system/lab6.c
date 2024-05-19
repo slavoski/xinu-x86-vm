@@ -1,23 +1,40 @@
 #include <xinu.h>
+#include <stdio.h>
+#include <stdlib.h>
 
+int firstTime = TRUE;
 pid32 process1;
-pid32 process2;
 
 void forever()
 {
-	while (1);
-	kprintf("Low Priority Process Ran\n");
-}
-
-void Lab6(int processToRun)
-{
-	process1 = create(forever, 1024, 20, "process1", 0);
-	process2 = create(forever, 1024, 20, "process2", 0);
+	umsg32* messages = receivek();
 
 	int i = 0;
-	for (; i < 10; ++i)
+	for (; i < NMESSAGES; ++i)
 	{
-		sendk(process1, i);
+		kprintf("Message %d: %d\n", i, messages[i]);
 	}
 
+	freemem(messages, NMESSAGES * sizeof(umsg32));
+}
+
+void Lab6(int processToRun, int numOfMessagesToSend)
+{
+	if (processToRun == 1)
+	{
+		kprintf("Send message to Process1 \n");
+		process1 = create(forever, 1024, 10, "process1", 0);
+		int i = 0;
+		for (; i < numOfMessagesToSend; ++i)
+		{
+			sendk(process1, rand() % (120 - 20) + 20);
+		}
+	}
+	else if (processToRun == 2)
+	{
+		kprintf("Receive Message From Process1 %d\n", process1);
+
+		resume(process1);
+	}
+	kprintf("Process1 %d\n", process1);
 }

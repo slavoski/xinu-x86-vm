@@ -45,6 +45,8 @@
 
 /* Definition of the process table (multiple of 32 bits) */
 
+#define NMESSAGES   5 //Number of messages to store
+
 struct procent {		/* entry in the process table		*/
 	uint16	prstate;	/* process state: PR_CURR, etc.		*/
 	pri16	prprio;		/* process priority			*/
@@ -57,8 +59,8 @@ struct procent {		/* entry in the process table		*/
 	umsg32	prmsg;		/* message sent to this process		*/
 	bool8	prhasmsg;	/* nonzero iff msg is valid		*/
 	int16	prdesc[NDESC];	/* device descriptors for process	*/
-	bool8   prhasmsgs[5];
-	umsg32  prmsgs[5];
+	bool8   prhasmsgs[NMESSAGES];
+	umsg32  prmsgs[NMESSAGES];
 };
 
 /* Marker for the top of a process stack (used to help detect overflow)	*/
