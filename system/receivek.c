@@ -39,7 +39,7 @@ umsg32* receivek(void)
 		//if so there are no new messages
 		else
 		{
-			break;
+			messages[i] = 0;
 		}
 	}
 
