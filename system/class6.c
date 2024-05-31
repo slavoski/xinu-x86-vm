@@ -3,9 +3,11 @@
 sid32 semaphore;
 sid32 finishedSemaphore;
 
-void Process()
+void Process(int value)
 {
-	while (1);
+	while (1) {
+		kprintf("Curr priority: %d\n", value);
+	}
 }
 
 void Process1()
@@ -33,18 +35,17 @@ void Process2Semaphore()
 	signal(finishedSemaphore);
 }
 
-
-
 void class6(int processToRun)
 {
 	finishedSemaphore = semcreate(0);
 	if (processToRun == 1)
 	{
-		create(Process, 1024, 20, "process1", 0);
-		create(Process, 1024, 20, "process2", 0);
-		create(Process, 1024, 20, "process3", 0);
+		create(Process, 1024, 10, "process1", 1, 10);
+		create(Process, 1024, 20, "process2", 1, 20);
+		create(Process, 1024, 15, "process3", 1, 15);
+		signal(finishedSemaphore);
 	}
-	else if(processToRun == 2)
+	else if (processToRun == 2)
 	{
 		resume(create(Process1, 1024, 20, "process1", 0));
 		resume(create(Process2, 1024, 40, "process2", 0));

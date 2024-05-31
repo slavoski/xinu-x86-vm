@@ -1,0 +1,101 @@
+
+xsh $ Booting Xinu on i386-pc...
+
+(x86 Xinu) #415 (xinu@develop-end) Thu May 23 18:39:50 MDT 2024
+
+  16777216 bytes physical memory.
+           [0x00000000 to 0x00FFFFFF]
+     30797 bytes of Xinu code.
+           [0x00000000 to 0x0000784C]
+     24031 bytes of data.
+           [0x0000784D to 0x0000D62B]
+    600528 bytes of heap space below 640K.
+  15728640 bytes of heap space above 1M.
+           [0x00100000 to 0x00FFFFFF]
+
+
+------------------------------------------
+   __    __   _____    _   _    _    _    
+   \ \  / /  |__ __|  | \ | |  | |  | |   
+    \ \/ /     | |    |  \| |  | |  | |   
+    / /\ \    _| |_   | \   |  | |  | |   
+   / /  \ \  |     |  | | \ |  \  --  /   
+   --    --   -----    -   -     ----     
+------------------------------------------
+
+
+Welcome to Xinu!
+
+
+xsh $ lab6 1 10
+Send message to Process1 
+Message Number 0 with message 58
+Message Number 1 with message 78
+Message Number 2 with message 33
+Message Number 3 with message 35
+Message Number 4 with message 71
+Message number 5 with message 47 failed
+Message number 5 with message 30 failed
+Message number 5 with message 39 failed
+Message number 5 with message 32 failed
+Message number 5 with message 106 failed
+Process1 4
+xsh $ lab6 2
+Receive Message From Process1 4
+Process1 4
+xsh $ Message 0: 58
+Message 1: 78
+Message 2: 33
+Message 3: 35
+Message 4: 71
+Booting Xinu on i386-pc...
+
+(x86 Xinu) #415 (xinu@develop-end) Thu May 23 18:39:50 MDT 2024
+
+  16777216 bytes physical memory.
+           [0x00000000 to 0x00FFFFFF]
+     30797 bytes of Xinu code.
+           [0x00000000 to 0x0000784C]
+     24031 bytes of data.
+           [0x0000784D to 0x0000D62B]
+    600528 bytes of heap space below 640K.
+  15728640 bytes of heap space above 1M.
+           [0x00100000 to 0x00FFFFFF]
+
+
+------------------------------------------
+   __    __   _____    _   _    _    _    
+   \ \  / /  |__ __|  | \ | |  | |  | |   
+    \ \/ /     | |    |  \| |  | |  | |   
+    / /\ \    _| |_   | \   |  | |  | |   
+   / /  \ \  |     |  | | \ |  \  --  /   
+   --    --   -----    -   -     ----     
+------------------------------------------
+
+
+Welcome to Xinu!
+
+
+xsh $ lab6 1 12
+Send message to Process1 
+Message Number 0 with message 58
+Message Number 1 with message 78
+Message Number 2 with message 33
+Message Number 3 with message 35
+Message Number 4 with message 71
+Message number 5 with message 47 failed
+Message number 5 with message 30 failed
+Message number 5 with message 39 failed
+Message number 5 with message 32 failed
+Message number 5 with message 106 failed
+Message number 5 with message 69 failed
+Message number 5 with message 87 failed
+Process1 4
+xsh $ lab6 2
+Receive Message From Process1 4
+Process1 4
+xsh $ Message 0: 58
+Message 1: 78
+Message 2: 33
+Message 3: 35
+Message 4: 71

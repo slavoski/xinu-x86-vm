@@ -8,7 +8,7 @@
  *  receivek  -  wait for a message and return the message to the caller
  *------------------------------------------------------------------------
  */
-umsg32* receivek(void)
+umsg32* receivek(int* sizeOfArray)
 {
 	intmask	mask;			/* saved interrupt mask		*/
 	struct	procent* prptr;		/* ptr to process' table entry	*/
@@ -17,9 +17,10 @@ umsg32* receivek(void)
 
 	prptr = &proctab[currpid];
 
-	umsg32* messages = (umsg32*)getmem(NMESSAGES * sizeof(umsg32));
+	umsg32 messages[NMESSAGES];
 
 	int i = 0;
+	int numOfMessages = 0;
 	for (; i < NMESSAGES; ++i)
 	{
 		//If first entry is false we have no messages in array
@@ -35,14 +36,22 @@ umsg32* receivek(void)
 		{
 			messages[i] = prptr->prmsgs[i];		/* retrieve message		*/
 			prptr->prhasmsgs[i] = FALSE;	/* reset message flag		*/
-		}
-		//if so there are no new messages
-		else
-		{
-			messages[i] = 0;
+			numOfMessages++;
 		}
 	}
 
+	//copy messages to return array
+	umsg32* returnMessages = NULL;
+	if (numOfMessages > 0)
+	{
+		returnMessages = (umsg32*)getmem(numOfMessages * sizeof(umsg32));
+		for (i = 0; i < numOfMessages; i++)
+		{
+			returnMessages[i] = messages[i];
+		}
+	}
+	*sizeOfArray = numOfMessages;
+	
 	restore(mask);
-	return messages;
+	return returnMessages;
 }
